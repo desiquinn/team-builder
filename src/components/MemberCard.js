@@ -1,13 +1,17 @@
 import React from "react";
 
-function Card(props) {
+function Card(member) {
 
+    const {name, email, role} = member
 
     return (
         <div>
-            <h2>{props.name}</h2>
-            <p>Email: {props.email}</p>
-            <p>Role: {props.role}</p>
+            <div>
+                <h2>{name}</h2>
+                <p>Email: {email}</p>
+                <p>Role: {role}</p>
+            </div>
+            <button>Edit</button>
         </div>
     )
 }
