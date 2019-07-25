@@ -6,7 +6,16 @@ import Card from "./components/MemberCard";
 import './App.css';
 
 function App() {
-const [member, setMember] = useState({ name: "", email: "", role: "" })
+  
+  const [team, setTeam] = useState({ name: "", email: "", role: "" })
+  const [memberToEdit, setMemberToEdit] = useState({})
+
+  function grabMember(member) {
+    console.log(member)
+    setMemberToEdit(member)
+  }
+
+  console.log(memberToEdit)
 
   return (
     <div className="App">
@@ -17,19 +26,22 @@ const [member, setMember] = useState({ name: "", email: "", role: "" })
 
       <div>
         {teamData.map((member)=> {
-          // console.log(member);
+          console.log(member);
           return <Card 
-            name={member.name} 
-            email={member.email} 
-            role={member.role}
+            member={member}
+            grabMember={grabMember}
           />
+
         })}
       </div>
 
       <div>
-      <Form />
+      <Form 
+        team={team}
+        setTeam={setTeam}
+      />
       </div>
-      
+
     </div>
   );
 }

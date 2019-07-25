@@ -1,8 +1,11 @@
 import React from "react";
 
-function Card(member) {
 
-    const {name, email, role} = member
+function Card(props) {
+
+    const {name, email, role} = props.member
+    
+    
 
     return (
         <div>
@@ -11,7 +14,7 @@ function Card(member) {
                 <p>Email: {email}</p>
                 <p>Role: {role}</p>
             </div>
-            <button>Edit</button>
+            <button onClick={() => props.grabMember(props.member)}>Edit</button>
         </div>
     )
 }
